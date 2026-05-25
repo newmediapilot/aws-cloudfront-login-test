@@ -1,0 +1,33 @@
+{
+  "name": "aws-cloudfront-login-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "astro build",
+    "prettier": "npx prettier --write .",
+    "patch": "npm version patch && git push && git push --tags",
+    "deploy": "node script/deploy.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newmediapilot/aws-cloudfront-login-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/newmediapilot/aws-cloudfront-login-test/issues"
+  },
+  "homepage": "https://github.com/newmediapilot/aws-cloudfront-login-test#readme",
+  "dependencies": {
+    "astro": "6.3.7"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-cloudfront": "3.1053.0",
+    "@aws-sdk/client-s3": "3.1053.0",
+    "prettier": "3.8.3"
+  }
+}
