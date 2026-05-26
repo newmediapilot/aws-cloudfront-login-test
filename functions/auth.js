@@ -1,26 +1,18 @@
-// CloudFront Function for authentication check
-// Redirects to /login if no 'auth' cookie is present
-
 function handler(event) {
-  const request = event.request;
-  const headers = request.headers;
+    var request = event.request;
+    var cookies = request.cookies;
+    var auth = cookies.auth && cookies.auth.value;
 
-  const cookieHeader = headers.cookie ? headers.cookie.value : '';
+    if (auth === "valid-user") {
+        request.headers["x-auth-status"] = {value: "allowed"};
+        return request;
+    }
 
-  // Simple presence check for auth cookie
-  if (!cookieHeader.includes('auth=')) {
-    // Return redirect response
     return {
-      statusCode: 302,
-      statusDescription: 'Found',
-      headers: {
-        location: { value: '/login' },
-      },
+        statusCode: 302,
+        statusDescription: "Found",
+        headers: {
+            "x-auth-status": {value: "blocked"}
+        }
     };
-  }
-
-  // Authenticated – continue request
-  return request;
 }
-
-exports.handler = handler;
