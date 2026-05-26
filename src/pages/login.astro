@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <script>
+    // Set authentication cookie and redirect to admin area
+    document.cookie = "auth=auth-cookie; path=/";
+    // Use absolute path to admin index page
+    window.location.href = "/admin/";
+  </script>
+</head>
+<body>
+  <p>Redirecting to admin...</p>
+</body>
+</html>
