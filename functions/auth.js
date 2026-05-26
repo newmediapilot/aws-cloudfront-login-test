@@ -1,6 +1,7 @@
 function handler(event) {
     var request = event.request;
     var cookies = request.cookies;
+
     var auth = cookies.auth && cookies.auth.value;
 
     if (auth === "valid-user") {
