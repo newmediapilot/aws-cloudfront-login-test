@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "astro dev",
     "build": "astro build",
     "prettier": "npx prettier --write .",
     "patch": "npm version patch && git push && git push --tags",
-    "deploy": "node script/deploy.js"
+    "deploy": "npm run build && node script/deploy.js"
   },
   "repository": {
     "type": "git",
