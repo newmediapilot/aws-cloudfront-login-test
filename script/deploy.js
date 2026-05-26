@@ -2,6 +2,7 @@ import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { CloudFrontClient, CreateInvalidationCommand } from "@aws-sdk/client-cloudfront";
 import { readdirSync, statSync, readFileSync } from "fs";
 import { join, relative, sep } from "path";
+import "dotenv/config";
 
 const { S3_BUCKET, CLOUDFRONT_DISTRIBUTION_ID, AWS_REGION = "us-east-1" } = process.env;
 
