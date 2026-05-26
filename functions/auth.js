@@ -4,7 +4,7 @@ function handler(event) {
     var auth = cookies.auth && cookies.auth.value;
 
     if (auth === "valid-user") {
-        request.headers["x-auth-status"] = {value: "allowed"};
+        request.headers["x-auth-status"] = { value: "allowed" };
         return request;
     }
 
@@ -12,7 +12,8 @@ function handler(event) {
         statusCode: 302,
         statusDescription: "Found",
         headers: {
-            "x-auth-status": {value: "blocked"}
+            location: { value: "/login/index.html" },
+            "x-auth-status": { value: "blocked" }
         }
     };
 }
